@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生管理システム</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { text-align: center; }
+        .container { max-width: 600px; margin: auto; padding: 20px; text-align: center; }
+        a { display: block; margin: 10px 0; padding: 10px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; }
+        a:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>学生管理システム</h1>
+        <a th:href="@{/students}">学生情報の閲覧</a>
+    </div>
+</body>
+</html>

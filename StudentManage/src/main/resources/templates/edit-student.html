@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生情報を編集</title>
+    <style>
+        /* add-student.htmlと同じスタイルを使用 */
+    </style>
+    <script>
+        // validateForm関数はadd-student.htmlと同様
+    </script>
+</head>
+<body>
+    <h2>学生情報を編集</h2>
+    <form th:action="@{/saveStudent}" th:object="${student}" method="post" onsubmit="return validateForm()">
+        <input type="hidden" th:field="*{id}" />
+        <label for="studentNumber">生徒番号:</label>
+        <input type="text" id="studentNumber" th:field="*{studentNumber}" readonly />
+        <span id="studentNumberError" class="error"></span>
+        
+        <label for="name">生徒氏名:</label>
+        <input type="text" id="name" th:field="*{name}" />
+        <span id="nameError" class="error"></span>
+        
+        <label for="age">年齢:</label>
+        <input type="number" id="age" th:field="*{age}" />
+        <span id="ageError" class="error"></span>
+        
+        <label for="gender">性別:</label>
+        <select id="gender" th:field="*{gender}">
+            <option value="">選択してください</option>
+            <option value="男性">男性</option>
+            <option value="女性">女性</option>
+        </select>
+        <span id="genderError" class="error"></span>
+        
+        <label for="className">クラス:</label>
+        <input type="text" id="className" th:field="*{className}" />
+        
+        <label for="address">住所:</label>
+        <input type="text" id="address" th:field="*{address}" />
+        
+        <label for="mealPlace">食事をとる場所:</label>
+        <input type="text" id="mealPlace" th:field="*{mealPlace}" />
+        
+        <label for="sleepPlace">就寝場所:</label>
+        <input type="text" id="sleepPlace" th:field="*{sleepPlace}" />
+        
+        <button type="submit">保存</button>
+    </form>
+</body>
+</html>

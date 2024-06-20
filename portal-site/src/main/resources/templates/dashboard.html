@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h2>Welcome to your Dashboard</h2>
+    <p>This is your private page.</p>
+    <a th:href="@{/logout}">Logout</a>
+    <h3>Links to Your Works</h3>
+    <ul>
+        <li><a href="https://www.pixiv.net/">Pixiv</a></li>
+        <li><a href="https://twitter.com/">Twitter</a></li>
+        <li><a href="https://github.com/">GitHub</a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>Welcome to the Portal Site</h1>
+    <div>
+        <h2>Login</h2>
+        <form th:action="@{/login}" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <div>
+        <h1>エンジニア向け情報収集リンク集</h1>
+
+  <section>
+    <h2>技術情報サイト</h2>
+    <ul>
+      <li><a href="https://atcoder.jp/">AtCoder</a></li>
+      <li><a href="https://qiita.com/">Qiita</a></li>
+      <li><a href="https://zenn.dev/">Zenn</a></li>
+      <li><a href="https://github.com/">GitHub</a></li>
+      <li><a href="https://stackoverflow.com/">stackoverflow</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>技術系メディア</h2>
+    <ul>
+      <li><a href="https://www.itmedia.co.jp/business/">ITmedia エンジニア</a></li>
+      <li><a href="https://techcrunch.com/region/asia/japan/">TechCrunch Japan</a></li>
+      <li><a href="https://japan.cnet.com/">CNET Japan</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>情報収集ツール</h2>
+    <ul>
+      <li><a href="https://www.google.com/">Google 検索</a></li>
+      <li><a href="https://scholar.google.com/">Google Scholar</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>技術情報ポータルサイト</h2>
+    <ul>
+      <li><a href="https://www.impress.co.jp/">インプレス総合研究所</a></li>
+      <li><a href="https://www.fujitsu.com/jp/about/research/">富士通</a></li>
+      <li><a href="https://www.nec.com/">NEC</a></li>
+      <li><a href="https://www.hitachi.co.jp/">日立製作所</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>その他</h2>
+    <ul>
+      <li><a href="https://twitter.com/">SNS</a></li>
+      <li><a href="https://www.blogger.com/">ブログ</a></li>
+      <li><a href="https://www.amazon.co.jp/">書籍・電子書籍</a></li>
+    </ul>
+  </section>
+    <div>
+        <h2>Twitter Timeline</h2>
+        <a class="twitter-timeline" href="https://twitter.com/TwitterDev" data-width="300" data-height="400">Tweets by TwitterDev</a> 
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</body>
+</html>

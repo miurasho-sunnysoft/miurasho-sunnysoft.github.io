@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生リスト</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        table, th, td { border: 1px solid black; }
+        th, td { padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        button { padding: 5px 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            loadStudents();
+
+            function loadStudents() {
+                $.ajax({
+                    url: '/students',
+                    type: 'GET',
+                    success: function(data) {
+                        let tableBody = $('#studentsTable tbody');
+                        tableBody.empty();
+                        data.forEach(function(student) {
+                            let row = '<tr>' +
+                                '<td>' + student.studentNumber + '</td>' +
+                                '<td>' + student.name + '</td>' +
+                                '<td>' + student.age + '</td>' +
+                                '<td>' + student.gender + '</td>' +
+                                '<td>' + student.className + '</td>' +
+                                '<td>' + student.address + '</td>' +
+                                '<td>' + student.mealPlace + '</td>' +
+                                '<td>' + student.sleepPlace + '</td>' +
+                                '<td>' +
+                                '<button onclick="editStudent(' + student.id + ')">編集</button>' +
+                                '<button onclick="deleteStudent(' + student.id + ')">削除</button>' +
+                                '</td>' +
+                                '</tr>';
+                            tableBody.append(row);
+                        });
+                    }
+                });
+            }
+
+            window.editStudent = function(id) {
+                window.location.href = '/showFormForUpdate/' + id;
+            }
+
+            window.deleteStudent = function(id) {
+                $.ajax({
+                    url: '/deleteStudent/' + id,
+                    type: 'DELETE',
+                    success: function() {
+                        loadStudents();
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <h2>学生リスト</h2>
+    <table id="studentsTable">
+        <thead>
+            <tr>
+                <th>生徒番号</th>
+                <th>生徒氏名</th>
+                <th>年齢</th>
+                <th>性別</th>
+                <th>クラス</th>
+                <th>住所</th>
+                <th>食事をとる場所</th>
+                <th>就寝場所</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 学生情報がここに表示されます -->
+        </tbody>
+    </table>
+    <br>
+    <button onclick="window.location.href='/showNewStudentForm'">新しい学生を追加</button>
+</body>
+</html>
